@@ -52,14 +52,17 @@
 $( document ).ready(function(){
     console.log( "ready!" );
  $('#phone').intlTelInput({
-    utilsScript:"lib/libphonenumber/build/utils.js"});
+    utilsScript:"intl-tel-input-master/lib/libphonenumber/build/utils.js"});
 
   $('#form').submit(function(event){
     event.preventDefault();
     var phone = $('#phone').val();
     $("span#span").text(phone);
 
-
+    var isValid = $('#phone').intlTelInput("isValidNumber");
+    $("#verify").text(isValid);
   });
+
+
 
 });
